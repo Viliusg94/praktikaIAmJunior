@@ -23,17 +23,19 @@
        
     }
    @media (max-width: 767px) {
-    + .card {
-        margin-top: 16px;
-    }
+        + .card {
+            margin-top: 16px;
+        }
    }
    @media (min-width: 768px) {
-   align-items: start;
-    &__content {
-        align-items: start;
-        p {
-            text-align: left;
+    align-items: start;
+        &__content {
+            align-items: start;
+            p {
+                text-align: left;
+                font-size: 16px;
+                line-height: 24px;
+            }
         }
-    }
    }
 }
