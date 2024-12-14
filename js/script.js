@@ -81,3 +81,41 @@ let asmuo = {
 
 console.log(asmuo); // {vardas: 'Vilius', amzius: 30}
 console.log(asmuo.vardas); // Vilius
+
+
+
+console.log(document.getElementById('read-more-btn')); // funkcija surasti elementa pagal id
+
+const readMoreBtn = document.getElementById('read-more-btn');
+// readMoreBtn.innerHTML = '<strong>Read Less</strong>'; // pakeicia mygtuko teksta su HTML tagais
+// readMoreBtn.style.backgroundColor = 'red'; // pakeicia mygtuko fono spalva
+
+console.log(readMoreBtn); // <button id="read-more-btn">Read More</button>
+
+
+readMoreBtn.innerText = 'Read Less'; // pakeicia mygtuko teksta
+readMoreBtn.innerHTML = '<p>Vilius</p>'; // pakeicia mygtuko teksta su HTML tagais
+readMoreBtn.style.backgroundColor = 'red'; // pakeicia mygtuko fono spalva
+readMoreBtn.style.width = '100px'; // pakeicia mygtuko ploti
+
+
+let cardContentElements = document.getElementsByClassName('card__content') // suranda elementa pagal klase
+// cardContentElement[0].appendChild(newPrimaryBtn); // prideda nauja elementa i esama elementa
+console.log(cardContentElements); // <a href="https://google.com" class="btn-primary" id="read-more-btn-new">Read more new</a>
+
+let masyvas = [1, 2, 3, 4];
+
+for (let i = 0; i < cardContentElements.length; i++) {
+    let newPrimaryBtn = document.createElement('a'); // sukuria nauja elementa
+    newPrimaryBtn.textContent = `Read More ${i}`; // priskiria teksta naujam elementui
+    newPrimaryBtn.href = 'https://google.com'; // priskiria href atributa naujam elementui
+    newPrimaryBtn.classList.add('btn-primary'); // priskiria klase naujam elementui
+    newPrimaryBtn.id = `read-more-btn-new-${i}`; // priskiria id naujam elementui
+    console.log(newPrimaryBtn); // <a href="https://google.com" class="btn-primary" id="read-more-btn-new">Read more new</a>
+    cardContentElements[i].appendChild(newPrimaryBtn); // prideda nauja elementa i esama elementa
+} //printina visus masyvo elementus
+
+
+masyvas.forEach((elementas, indexas) => {
+    console.log(`masyvo reiksme -  ${elementas}, ir jo indexas indexas - ${indexas}`);
+}); // printina visus masyvo elementus
