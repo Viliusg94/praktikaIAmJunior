@@ -116,6 +116,6 @@ for (let i = 0; i < cardContentElements.length; i++) {
 } //printina visus masyvo elementus
 
 
-masyvas.forEach((elementas, indexas) => {
-    console.log(`masyvo reiksme -  ${elementas}, ir jo indexas indexas - ${indexas}`);
-}); // printina visus masyvo elementus
+// masyvas.forEach((elementas, indexas) => {
+//     console.log(`masyvo reiksme -  ${elementas}, ir jo indexas indexas - ${indexas}`);
+// }); // printina visus masyvo elementus
