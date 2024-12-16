@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
+    <script defer src="js/script.js"></script> <!-- defer tagas leidzia uzkrauti js is bet kurios failo vietos-->
 
 
 </head>
@@ -28,7 +29,7 @@
             <li><a href="#">Team</a></li>
         </ul>
  
-        <a class="top-header__contact-btn" href="#">Contact Us</a>
+        <a id="contact-us-btn" class="top-header__contact-btn" href="#">Contact Us</a>
  
         <svg class="burger-btn" width="50" height="50" viewBox="0 0 56 56" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -111,9 +112,18 @@
                 </div>    
             </div>
         </section>
+
+        <form id="forma">
+            <input required type="Text" id="tekstinis-laukas">
+            <button type="submit">Pateikti forma</button>
+        </form>
+
+        <p id="tekstinio-lauko-reiksme">
+
+        </p>
     </div>
 </main>
    
-<script src="js/script.js"></script>
+
 </body>
 </html>

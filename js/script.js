@@ -1,3 +1,9 @@
+//kintamieji, konstantos ir funkcijos geriausia issikelti i kodo prieki
+
+const sudetiDviReiksmes = function (skaicius1, skaicius2) {
+    console.log(skaicius1 + skaicius2);
+}
+
 let vardas = 'Vilius';
 console.log(vardas); // Vilius
 
@@ -119,3 +125,63 @@ for (let i = 0; i < cardContentElements.length; i++) {
 // masyvas.forEach((elementas, indexas) => {
 //     console.log(`masyvo reiksme -  ${elementas}, ir jo indexas indexas - ${indexas}`);
 // }); // printina visus masyvo elementus
+
+
+function pasveikinimas(vardas, pavarde, amzius) 
+{
+    console.log(`Labas vakaras, ${vardas} ${pavarde}, man yra - ${amzius} metu`);
+}
+
+pasveikinimas('Vilius', 'Grazulis', 30); 
+pasveikinimas('Lidija', 'Grazuliene', 25); 
+pasveikinimas('Kaciukai', 'Ninja/Ganja', 8); 
+
+
+
+
+sudetiDviReiksmes(1, 2); // 3
+sudetiDviReiksmes(3, 4); // 7
+
+(function(){
+    console.log('Kodas is 150eilutes buvo ivygdytas');
+})()
+
+const contactUsButton = document.getElementById('contact-us-btn');
+console.log(contactUsButton); // <button id="contact-us-btn">Contact Us</button>
+
+contactUsButton.addEventListener('mouseover', function() {
+    alert('Mygtukas buvo paspaustas');
+})
+
+document.addEventListener('keydown', function(event){
+    console.log(event.key); // console grazina paspausto klaviso pavadinima
+    if (event.key === 'v') {
+        alert('Paspaustas "V" klavisas');
+    }
+});
+
+const tekstinisLaukas = document.getElementById('tekstinis-laukas');
+const tekstinioLaukoReiksme = document.getElementById('tekstinio-lauko-reiksme');
+
+// tekstinisLaukas.addEventListener('blur', function() {
+//     console.log(tekstinisLaukas.value);
+//     tekstinioLaukoReiksme.textContent = tekstinisLaukas.value;
+// })
+
+const forma = document.getElementById('forma');
+forma.addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log(tekstinisLaukas.value);
+    if (tekstinisLaukas.value.trim()) {
+        tekstinioLaukoReiksme.textContent = 'Forma validi';
+        tekstinioLaukoReiksme.style.color = 'green';
+        
+        //nusiusti duomenis i backenda
+        setTimeout(function(){
+            window.location.href = 'https://google.com';
+        }, 3000);
+    } else {
+        tekstinioLaukoReiksme.textContent = 'Forma nevalidi';
+        tekstinioLaukoReiksme.style.color = 'red';
+    }
+});  // preventDefault - neleidzia formai persikrauti;
