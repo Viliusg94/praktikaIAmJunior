@@ -168,20 +168,112 @@ const tekstinioLaukoReiksme = document.getElementById('tekstinio-lauko-reiksme')
 //     tekstinioLaukoReiksme.textContent = tekstinisLaukas.value;
 // })
 
-const forma = document.getElementById('forma');
-forma.addEventListener('submit', function(event) {
-    event.preventDefault();
-    console.log(tekstinisLaukas.value);
-    if (tekstinisLaukas.value.trim()) {
-        tekstinioLaukoReiksme.textContent = 'Forma validi';
-        tekstinioLaukoReiksme.style.color = 'green';
+// const forma = document.getElementById('forma');
+// forma.addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     console.log(tekstinisLaukas.value);
+//     if (tekstinisLaukas.value.trim()) {
+//         tekstinioLaukoReiksme.textContent = 'Forma validi';
+//         tekstinioLaukoReiksme.style.color = 'green';
         
-        //nusiusti duomenis i backenda
-        setTimeout(function(){
-            window.location.href = 'https://google.com';
-        }, 3000);
-    } else {
-        tekstinioLaukoReiksme.textContent = 'Forma nevalidi';
-        tekstinioLaukoReiksme.style.color = 'red';
+//         //nusiusti duomenis i backenda
+//         setTimeout(function(){
+//             window.location.href = 'https://google.com';
+//         }, 3000);
+//     } else {
+//         tekstinioLaukoReiksme.textContent = 'Forma nevalidi';
+//         tekstinioLaukoReiksme.style.color = 'red';
+//     }
+// });  // preventDefault - neleidzia formai persikrauti;
+
+document.addEventListener('DOMContentLoaded', function(){
+    let cards = []
+
+    const forma = document.getElementById('forma')
+    forma.addEventListener('submit', function(event){
+    event.preventDefault();
+    const paveiksliukoKelias = document.getElementById('paveiksliukoKelias');
+    console.log(paveiksliukoKelias.value);
+    const antrastesTekstas = document.getElementById('antrastesTekstas');
+    const paragrafoTekstas = document.getElementById('paragrafoTekstas');
+    const paveiksliukoAltTekstas = document.getElementById('paveiksliukoAltTekstas');
+    const mygtukoTekstas = document.getElementById('mygtukoTekstas');
+    const mygtukoNuoroda = document.getElementById('mygtukoNuoroda');
+    const mygtukoTarger = document.getElementById('mygtukoTarger');
+
+    console.log(mygtukoNuoroda.value);
+    cards = [...cards, {
+        paveiksliukoKelias: paveiksliukoKelias.value,
+        antrastesTekstas: antrastesTekstas.value,
+        paveiksliukoAltTekstas: paveiksliukoAltTekstas.value,
+        paragrafoTekstas: paragrafoTekstas.value,
+        mygtukoTekstas: mygtukoTekstas.value,
+        mygtukoNuoroda: mygtukoNuoroda.value,
+        mygtukoTarger: "_blank"
+    }];
+    uzkrautiKorteliuDuomenis(cards);
+    forma.reset();
+    
+    
+})
+
+    const sectionCard = document.getElementById('section-card');
+    sectionCard.innerText = 'Kraunami duomenys...';
+
+    function uzkrautiKorteliuDuomenis (korteles) {
+        // console.log(korteles);
+
+        sectionCard.innerText="";
+
+        korteles.forEach(function(kortele) {
+            // console.log(kortele);
+            //Sukuriamas pagrindinis card divas
+            const divElementas = document.createElement('div');
+            divElementas.classList.add('card');
+            //Sukuriamas picture elementas
+            const pictureElementas = document.createElement('picture');
+            pictureElementas.classList.add('icon');
+            //Sukuriamas img elementas
+            const imgElementas = document.createElement('img');
+            imgElementas.src = kortele.paveiksliukoKelias;
+            imgElementas.alt = kortele.paveiksliukoAltTekstas;
+            //Sukuriamas inner div elementas
+            const turinioDivElementas = document.createElement('div');
+            turinioDivElementas.classList.add('card__content');
+            //Sukuriamas h2 Tagas
+            const antraste2 = document.createElement('h2');
+            antraste2.innerText = kortele.antrastesTekstas;
+            // Sukuriamas paragrafas
+            const paragrafoElementas = document.createElement('p');
+            paragrafoElementas.innerText = kortele.paragrafoTekstas;
+            //sukuriamas a elementas
+            const aElementas = document.createElement('a');
+            aElementas.classList.add('btn-primary');
+            aElementas.innerText = kortele.mygtukoTekstas;
+            aElementas.href = kortele.mygtukoNuoroda;
+            aElementas.target = kortele.mygtukoTarger;
+            //pridedam a taga i inner diva
+            //sukurti a taga 
+            //priskirti jam likusiu ypatybiu reiksmes (mygtuko tekstas, mygtuko nuoroda, mygtuko target)
+            //prideti a taga i inner diva
+
+            //prie picture elemento pridedamas IMG tagas
+            pictureElementas.appendChild(imgElementas);
+            //prie pagrindinio divo pridedamas picture elementas
+            divElementas.appendChild(pictureElementas);
+            //inner divui pridedamas h2 Tag'as
+            turinioDivElementas.appendChild(antraste2);
+            //inner divui pridedamas paragrafas
+            turinioDivElementas.appendChild(paragrafoElementas);
+            //prie inner divo pridedamas a tagas
+            turinioDivElementas.appendChild(aElementas);
+            //prie pagrindinio divo pridedamas inner divas (kurio viduje yra h2 ir p tagai su turiniu)
+            divElementas.appendChild(turinioDivElementas);
+            sectionCard.appendChild(divElementas);
+           
+        })
     }
-});  // preventDefault - neleidzia formai persikrauti;
+
+    uzkrautiKorteliuDuomenis(cards);
+})
+

@@ -58,8 +58,8 @@
                 <img src="img/hero.png" alt="Statinio paveiksliukas">
             </picture>
         </section>
-        <section class="section-card">
-            <div class="card">
+        <section id="section-card" class="section-card">
+            <!-- <div class="card">
                 <picture class="icon" >
                     <img src="/img/tool-icon.svg" alt="tool">
                 </picture>
@@ -110,11 +110,42 @@
                         Designing and Building The Most Beautiful Custom Homes
                     </p>
                 </div>    
-            </div>
+            </div> -->
         </section>
 
         <form id="forma">
-            <input required type="Text" id="tekstinis-laukas">
+           <div> 
+            <label>
+                Paveiksliuko kelias
+                <select name="paveiksliukoKelias" id="paveiksliukoKelias">
+                    <option value="img/tool-icon.svg">Irankis</option>
+                    <option value="img/worker-icon.svg">Darbininkas</option>
+                    <option value="img/building-icon.svg">Pastatas</option>
+                    <option value="img/doublebed-icon.svg">Lova</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            Paveiksliuko Alt Tekstas
+            <input required type="text" name="paveiksliukoAltTekstas" id="paveiksliukoAltTekstas">            
+        </div>
+        <div>
+            Antrastes Tekstas
+            <input required type="text" name="antrastesTekstas" id="antrastesTekstas">            
+        </div>
+        <div>
+            Paragrafo Tekstas
+            <input required type="text" name="paragrafoTekstas" id="paragrafoTekstas">
+        </div>
+        <div>
+            Mygtuko tekstas
+            <input type="text" name="mygtukoTekstas" id="mygtukoTekstas">
+        </div>
+        <div>
+            Mygtuko nuoroda
+            <input type="text" name="mygtukoNuoroda" id="mygtukoNuoroda">
+        </div>
+            <!-- <input required type="Text" id="tekstinis-laukas"> -->
             <button type="submit">Pateikti forma</button>
         </form>
 
